@@ -8,6 +8,7 @@ Custom [`markdownlint`](https://github.com/DavidAnson/markdownlint) rules for [F
 - [_indented-fence_](./lib/indented-fence.js) – indented code block should be indented by 4 spaces at least
 - [_non-literal-fence-label_](./lib/non-literal-fence-label.js) – language label of fenced code block shouldn't contain non-literal symbols
 - [_fenced-code-in-quote_](./lib/fenced-code-in-quote.js) – quotes shouldn't contain fenced code blocks
+- [_typograph_](./lib/typograph.js) – checks for typographical errors
 - [_validate-internal-links_](./lib/validate-internal-links.js) – validates local links according to a common foliant-project structure
 
 ## Install
@@ -42,7 +43,6 @@ Create config file `.markdownlint-cli2.jsonc` for _markdownlint-cli2_ in the pro
     "indented-fence": true,
     "non-literal-fence-label": true,
     "fenced-code-in-quote": true,
-    "blank-around-indented-code-blocks": true,
     "typograph": true,
     "validate-internal-links": true
   }
@@ -63,6 +63,14 @@ src/indented-fence.md:8 indented-fence Fenced code shouldn't be indented by 1 to
 src/non-literal-fence-label.md:3 non-literal-fence-label Invalid language label in fenced code block
 src/topic-A/validate-internal-links.md:39 validate-internal-links Broken link [file does not exist] [Context: "adjacent-document"]
 src/typograph.md:9:5 typograph typograph error [dash instead of hyphen]
+```
+
+### Fixing errors
+
+Run _markdownlint-cli2-fix_ for all markdown files in `src` directory and check changed files
+
+```bash
+./node_modules/.bin/markdownlint-cli2-fix "src/**/*.md"
 ```
 
 ### Visual Studio Code integration
