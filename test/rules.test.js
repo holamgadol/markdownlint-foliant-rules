@@ -124,7 +124,10 @@ test.cb('validate-internal-links', (t) => {
     files: [
       './test/test-src/topic-A/validate-internal-links.md'
     ],
-    config: { default: true },
+    config: {
+      default: true,
+      MD042: false
+    },
     customRules: [validateInternalLinks],
     resultVersion: 0
   }

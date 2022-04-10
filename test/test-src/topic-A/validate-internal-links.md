@@ -59,3 +59,5 @@ Invlid link to extenral repo [document](/external-project/document)
 Invalid link to [heading](#invalids)
 
 Invalid link to [heading](invalid)
+
+Empty [link]()
