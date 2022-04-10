@@ -26,6 +26,14 @@ Valid MkDoca link to [anchor](./#valid)
 
 Internet link to [example](https://example.com/)
 
+Valid links to images
+
+![red circle](../_img/red-circle.png)
+
+![black square](images/black-square.png)
+
+![black square](./images/black-square.png)
+
 ## Invalid links {#invalid}
 
 Invalid classical link to adjacent [document](adjacent-document)
@@ -61,3 +69,9 @@ Invalid link to [heading](#invalids)
 Invalid link to [heading](invalid)
 
 Empty [link]()
+
+Invalid links to images
+
+![red circle](_img/red-circle.png)
+
+![black square](/images/black-square.png)

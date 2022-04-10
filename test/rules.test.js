@@ -135,7 +135,7 @@ test.cb('validate-internal-links', (t) => {
     t.falsy(err)
     const expectedResult = {
       './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61]
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 75, 77]
       }
     }
     // @ts-ignore
