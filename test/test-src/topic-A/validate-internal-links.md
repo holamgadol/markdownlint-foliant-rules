@@ -6,7 +6,7 @@ Valid classical link to adjacent [document](adjacent-document.md)
 
 Valid MkDocs link to adjacent [document](../adjacent-document)
 
-Valid classical link to anchor in adjacent [document](adjacent-document.md#anchor)
+Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
 
 Valid MkDocs link to adjacent [document](../adjacent-document#anchor)
 
@@ -46,9 +46,9 @@ Invalid MkDocs link to adjacent [document](../../adjacent-document)
 
 Invalid MkDocs link to adjacent [document](/adjacent-document)
 
-Invalid classical link to anchor in adjacent [document](adjacent-document#anchor)
+Invalid classical link to anchor in an adjacent [document](adjacent-document#anchor)
 
-Invalid classical link to anchor in adjacent [document](adjacent-document.md#anchors)
+Invalid classical link to anchor in an adjacent [document](adjacent-document.md#anchors)
 
 Invalid MkDocs link to adjacent [document](../adjacent-document#ancho)
 

@@ -32,11 +32,11 @@ Create config file `.markdownlint-cli2.jsonc` for _markdownlint-cli2_ in the pro
 ```yaml
 {
   "customRules": [
-    "./node_modules/markdownlint-rules-foliant/lib/indented-fence",
-    "./node_modules/markdownlint-rules-foliant/lib/non-literal-fence-label",
-    "./node_modules/markdownlint-rules-foliant/lib/fenced-code-in-quote",
-    "./node_modules/markdownlint-rules-foliant/lib/typograph",
-    "./node_modules/markdownlint-rules-foliant/lib/validate-internal-links"
+    "markdownlint-rules-foliant/lib/indented-fence",
+    "markdownlint-rules-foliant/lib/non-literal-fence-label",
+    "markdownlint-rules-foliant/lib/fenced-code-in-quote",
+    "markdownlint-rules-foliant/lib/typograph",
+    "markdownlint-rules-foliant/lib/validate-internal-links"
   ],
   "config": {
     "default": false,
@@ -52,7 +52,7 @@ Create config file `.markdownlint-cli2.jsonc` for _markdownlint-cli2_ in the pro
 Run _markdownlint-cli2_ for all markdown files in `src` directory and check results
 
 ```bash
-$ ./node_modules/.bin/markdownlint-cli2 "src/**/*.md"
+$ npx markdownlint-cli2 "src/**/*.md"
 
 markdownlint-cli2 v0.4.0 (markdownlint v0.25.1)
 Finding: test/test-src/**/*.md
@@ -64,13 +64,15 @@ src/non-literal-fence-label.md:3 non-literal-fence-label Invalid language label 
 src/topic-A/validate-internal-links.md:39 validate-internal-links Broken link [file does not exist] [Context: "adjacent-document"]
 src/typograph.md:9:5 typograph typograph error [dash instead of hyphen]
 ```
+_npx_ is needed if _markdownlint-cli2_ is not installed globally.
+Otherwise, you may run _markdownlint-cli2_ without additional tools.
 
 ### Fixing errors
 
 Run _markdownlint-cli2-fix_ for all markdown files in `src` directory and check changed files
 
 ```bash
-./node_modules/.bin/markdownlint-cli2-fix "src/**/*.md"
+npx markdownlint-cli2-fix "src/**/*.md"
 ```
 
 ### Visual Studio Code integration
