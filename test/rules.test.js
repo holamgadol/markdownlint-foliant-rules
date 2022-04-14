@@ -135,7 +135,37 @@ test.cb('validate-internal-links', (t) => {
     t.falsy(err)
     const expectedResult = {
       './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 75, 77]
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
+      }
+    }
+    // @ts-ignore
+    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+    t.end()
+  })
+})
+
+test.cb('validate-internal-links with src', (t) => {
+  t.plan(2)
+  const options = {
+    files: [
+      './test/test-src/topic-A/validate-internal-links.md'
+    ],
+    config: {
+      default: true,
+      MD042: false,
+      'validate-internal-links': {
+        src: './test',
+        project: 'markdownlint-foliant-rules'
+      }
+    },
+    customRules: [validateInternalLinks],
+    resultVersion: 0
+  }
+  markdownlint(options, function callback (err, actualResult) {
+    t.falsy(err)
+    const expectedResult = {
+      './test/test-src/topic-A/validate-internal-links.md': {
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79]
       }
     }
     // @ts-ignore

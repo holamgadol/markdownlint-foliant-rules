@@ -1,15 +1,48 @@
 # Markdownlint Foliant rules
 
-Custom [`markdownlint`](https://github.com/DavidAnson/markdownlint) rules for [Foliant](https://foliant-docs.github.io/docs/)-projects.
-
+Custom [`markdownlint`](https://github.com/DavidAnson/markdownlint) rules
+for [Foliant](https://foliant-docs.github.io/docs/)-projects.
 
 ## Rules
 
-- [_indented-fence_](./lib/indented-fence.js) – indented code block should be indented by 4 spaces at least
-- [_non-literal-fence-label_](./lib/non-literal-fence-label.js) – language label of fenced code block shouldn't contain non-literal symbols
-- [_fenced-code-in-quote_](./lib/fenced-code-in-quote.js) – quotes shouldn't contain fenced code blocks
-- [_typograph_](./lib/typograph.js) – checks for typographical errors
-- [_validate-internal-links_](./lib/validate-internal-links.js) – validates local links according to a common foliant-project structure
+### [_indented-fence_](./lib/indented-fence.js)
+
+Indented code block should be indented by 4 spaces at least.
+
+### [_non-literal-fence-label_](./lib/non-literal-fence-label.js)
+
+The Language label of fenced code block shouldn't contain non-literal symbols.
+
+### [_fenced-code-in-quote_](./lib/fenced-code-in-quote.js)
+
+Quotes shouldn't contain fenced code blocks.
+
+### [_typograph_](./lib/typograph.js)
+
+Checks for typographical errors
+
+### [_validate-internal-links_](./lib/validate-internal-links.js)
+
+Validates local links according to a common foliant-project structure.
+
+#### Configuration
+
+_validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.
+It can be useful in case of linting inside a docker-container.
+
+```bash
+{
+  "customRules": [
+    "validate-internal-links"
+  ],
+  "config": {
+    "validate-internal-links": {
+    "src": "./src",
+    "project": "markdownlint-foliant-rules"
+    }
+  }
+}
+```
 
 ## Install
 
@@ -64,8 +97,9 @@ src/non-literal-fence-label.md:3 non-literal-fence-label Invalid language label 
 src/topic-A/validate-internal-links.md:39 validate-internal-links Broken link [file does not exist] [Context: "adjacent-document"]
 src/typograph.md:9:5 typograph typograph error [dash instead of hyphen]
 ```
-_npx_ is needed if _markdownlint-cli2_ is not installed globally.
-Otherwise, you may run _markdownlint-cli2_ without additional tools.
+
+_npx_ is needed if _markdownlint-cli2_ is not installed globally. Otherwise, you may run _markdownlint-cli2_ without
+additional tools.
 
 ### Fixing errors
 
@@ -77,5 +111,6 @@ npx markdownlint-cli2-fix "src/**/*.md"
 
 ### Visual Studio Code integration
 
-Install the [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) extension for better interactive linting.
+Install the [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) extension
+for better interactive linting.
 

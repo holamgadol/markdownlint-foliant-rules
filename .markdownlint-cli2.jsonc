@@ -8,10 +8,13 @@
   ],
   "config": {
     "default": false,
-    "indented-fence": true,
-    "non-literal-fence-label": true,
-    "fenced-code-in-quote": true,
-    "typograph": true,
-    "validate-internal-links": true
+    "indented-fence": false,
+    "non-literal-fence-label": false,
+    "fenced-code-in-quote": false,
+    "typograph": false,
+    "validate-internal-links": {
+    "src": "./test",
+    "project": "markdownlint-foliant-rules"
+    }
   }
 }

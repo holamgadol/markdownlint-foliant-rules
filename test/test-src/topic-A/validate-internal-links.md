@@ -62,7 +62,9 @@ Invalid classical link to anchor in another [document](../topic-B/topic-B-docume
 
 Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
 
-Invlid link to extenral repo [document](/external-project/document)
+Invalid link to external repo [document](/external-project/document)
+
+Sometimes invalid link to external repo [document](/markdownlint-foliant-rules/test-src/topic-A/adjacent-document#anchor)
 
 Invalid link to [heading](#invalids)
 
