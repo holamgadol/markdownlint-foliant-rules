@@ -11,7 +11,9 @@
   "bugs": "https://github.com/holamgadol/markdownlint-foliant-rules/issues",
   "scripts": {
     "lint": "eslint .",
-    "test": "ava -t"
+    "test": "ava -t",
+    "prepare": "husky install",
+    "validate": "npm run lint && npm test"
   },
   "keywords": [
     "markdownlint-rule"
@@ -27,6 +29,7 @@
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0"
+    "eslint-plugin-promise": "^5.2.0",
+    "husky": "^7.0.4"
   }
 }
