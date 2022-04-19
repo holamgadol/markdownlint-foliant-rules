@@ -77,3 +77,5 @@ Invalid links to images
 ![red circle](_img/red-circle.png)
 
 ![black square](/images/black-square.png)
+
+Sometimes invalid link to external repo [document](/another-project/test-src/topic-A/adjacent-document#anchor)

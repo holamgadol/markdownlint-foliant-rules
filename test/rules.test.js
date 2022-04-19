@@ -97,7 +97,7 @@ test.cb('typograph', (t) => {
           lineNumber: 5,
           ruleAlias: 'typograph',
           ruleDescription: 'typograph error',
-          ruleInformation: null,
+          ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
           ruleName: 'typograph'
         },
         {
@@ -107,7 +107,7 @@ test.cb('typograph', (t) => {
           lineNumber: 9,
           ruleAlias: 'typograph',
           ruleDescription: 'typograph error',
-          ruleInformation: null,
+          ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
           ruleName: 'typograph'
         }
       ]
@@ -135,7 +135,7 @@ test.cb('validate-internal-links', (t) => {
     t.falsy(err)
     const expectedResult = {
       './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79, 81]
       }
     }
     // @ts-ignore
@@ -165,7 +165,37 @@ test.cb('validate-internal-links with src', (t) => {
     t.falsy(err)
     const expectedResult = {
       './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79]
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79, 81]
+      }
+    }
+    // @ts-ignore
+    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+    t.end()
+  })
+})
+
+test.cb('validate-internal-links with src and project', (t) => {
+  t.plan(2)
+  const options = {
+    files: [
+      './test/test-src/topic-A/validate-internal-links.md'
+    ],
+    config: {
+      default: true,
+      MD042: false,
+      'validate-internal-links': {
+        src: './test',
+        project: 'another-project'
+      }
+    },
+    customRules: [validateInternalLinks],
+    resultVersion: 0
+  }
+  markdownlint(options, function callback (err, actualResult) {
+    t.falsy(err)
+    const expectedResult = {
+      './test/test-src/topic-A/validate-internal-links.md': {
+        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
       }
     }
     // @ts-ignore
