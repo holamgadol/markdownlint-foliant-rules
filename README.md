@@ -7,28 +7,140 @@ for [Foliant](https://foliant-docs.github.io/docs/)-projects.
 
 ### [_indented-fence_](./lib/indented-fence.js)
 
-Indented code block should be indented by 4 spaces at least.
+Fenced code block should be indented by 4 spaces at least.
+
+This rule is triggered when there are fenced code blocks indented by 1 to 3 spaces.
+
+Example:
+
+~~~md
+   ```bash
+   fenced code block [indented by 3 spaces]
+   ```
+~~~
+
+Correct example:
+
+~~~md
+```bash
+fenced code block [indented by 0 spaces]
+```
+~~~
+
+Rationale: Violations of this rule can lead to improperly rendered content.
 
 ### [_non-literal-fence-label_](./lib/non-literal-fence-label.js)
 
 The Language label of fenced code block shouldn't contain non-literal symbols.
 
+This rule is triggered when there are fenced code blocks with a label containing non-literal symbols.
+
+Example:
+
+~~~md
+```json{
+    "name": "markdownlint-rules-foliant",
+    "version": "0.0.1",
+    "description": "Markdownlint rules for Foliant projects",
+    "license": "MIT"
+}
+```
+~~~
+
+Correct example:
+
+~~~md
+```json
+{
+    "name": "markdownlint-rules-foliant",
+    "version": "0.0.1",
+    "description": "Markdownlint rules for Foliant projects",
+    "license": "MIT"
+}
+```
+~~~
+
+Rationale: Violations of this rule can lead to improperly rendered content.
+
 ### [_fenced-code-in-quote_](./lib/fenced-code-in-quote.js)
 
 Quotes shouldn't contain fenced code blocks.
 
+This rule is triggered when there are fenced code blocks indented by 0 to 4 spaces from quote sign `>`.
+
+Example:
+
+~~~md
+>  ```python
+>  import print
+>  print("backtick fenced code block with lang label")
+>  ```
+~~~
+
+Correct example:
+
+~~~md
+>     ```python
+>     import print
+>     print("backtick fenced code block with lang label")
+>     ```
+~~~
+
+Rationale: Violations of this rule can lead to improperly rendered content.
+
 ### [_typograph_](./lib/typograph.js)
 
-Checks for typographical errors
+Checks for typographical errors.
+
+Fixable: Most violations can be fixed by tooling
+
+This rule is triggered when one of the following cases is detected.
+
+#### Hyphen instead of dash
+
+Example
+
+```md
+physics - science
+```
+
+Corrected example:
+
+```md
+physics – science
+```
+
+#### Dash instead of hyphen
+
+Example:
+
+```md
+semi–final
+```
+
+Corrected example:
+
+```md
+semi-final
+```
+
+Rationale: Violations of this rule can lead to an improperly typed text.
+
 
 ### [_validate-internal-links_](./lib/validate-internal-links.js)
 
 Validates local links according to a common foliant-project structure.
 
+Parameters: src, project
+
+This rule is triggered when a local link without a proper reference is found.
+
 #### Configuration
 
 _validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.
 It can be useful in case of linting inside a docker-container.
+
+
 
 ```bash
 {
@@ -43,6 +155,9 @@ It can be useful in case of linting inside a docker-container.
   }
 }
 ```
+
+Rationale: Violations of this rule can lead to broken links.
+
 
 ## Install
 
@@ -113,4 +228,3 @@ npx markdownlint-cli2-fix "src/**/*.md"
 
 Install the [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) extension
 for better interactive linting.
-
