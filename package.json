@@ -1,6 +1,6 @@
 {
   "name": "markdownlint-rules-foliant",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Markdownlint rules for Foliant projects",
   "license": "MIT",
   "homepage": "https://github.com/holamgadol/markdownlint-foliant-rules",
@@ -19,12 +19,12 @@
     "markdownlint-rule"
   ],
   "dependencies": {
-    "markdownlint": "^0.25.1",
-    "markdownlint-cli2": "^0.4.0",
-    "markdownlint-rule-helpers": "^0.16.0"
+    "markdownlint": "^0.27.0",
+    "markdownlint-cli2": "^0.6.0",
+    "markdownlint-rule-helpers": "^0.18.0"
   },
   "devDependencies": {
-    "ava": "3.15.0",
+    "ava": "^5.2.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.26.0",
