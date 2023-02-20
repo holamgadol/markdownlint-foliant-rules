@@ -8,6 +8,8 @@ Valid MkDocs link to adjacent [document](../adjacent-document)
 
 Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
 
+**Text for anchor link** <anchor>anchor_link</anchor>
+
 Valid MkDocs link to adjacent [document](../adjacent-document#anchor)
 
 Valid classical link to another [document](../topic-B/topic-B-document.md)
@@ -21,6 +23,12 @@ Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document
 Valid link to [heading](#valid-links)
 
 Valid classical link to [anchor](#valid)
+
+Valid [anchor link](#anchor_link)
+
+Valid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_link)
+
+Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#external_anchor_link)
 
 Valid MkDoca link to [anchor](./#valid)
 
@@ -69,6 +77,12 @@ Sometimes invalid link to external repo [document](/markdownlint-foliant-rules/t
 Invalid link to [heading](#invalids)
 
 Invalid link to [heading](invalid)
+
+Invalid [anchor link](#anchor_lin)
+
+Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
+
+Invalid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#external_anchor_lin)
 
 Empty [link]()
 

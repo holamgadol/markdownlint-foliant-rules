@@ -111,6 +111,7 @@ test('validate-internal-links', async t => {
     ],
     config: {
       default: true,
+      MD033: false,
       MD042: false,
       MD051: false
     },
@@ -119,7 +120,7 @@ test('validate-internal-links', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79, 81]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95]
     }
   }
   const actualResult = await promisify(markdownlint)(options)
@@ -134,6 +135,7 @@ test('validate-internal-links with src', async t => {
     ],
     config: {
       default: true,
+      MD033: false,
       MD042: false,
       MD051: false,
       'validate-internal-links': {
@@ -146,7 +148,7 @@ test('validate-internal-links with src', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79, 81]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95]
     }
   }
   const actualResult = await promisify(markdownlint)(options)
@@ -161,6 +163,7 @@ test('validate-internal-links with src and project', async t => {
     ],
     config: {
       default: true,
+      MD033: false,
       MD042: false,
       MD051: false,
       'validate-internal-links': {
@@ -173,7 +176,7 @@ test('validate-internal-links with src and project', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93]
     }
   }
   const actualResult = await promisify(markdownlint)(options)
