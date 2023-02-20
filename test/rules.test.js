@@ -1,4 +1,5 @@
 const test = require('ava').default
+const { promisify } = require('util')
 
 const markdownlint = require('markdownlint')
 const indentedFence = require('../lib/indented-fence')
@@ -7,8 +8,8 @@ const fencedCodeInQuote = require('../lib/fenced-code-in-quote')
 const typograph = require('../lib/typograph')
 const validateInternalLinks = require('../lib/validate-internal-links')
 
-test.cb('indented-fence', (t) => {
-  t.plan(2)
+test('indented-fence', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/indented-fence.md'
@@ -17,21 +18,17 @@ test.cb('indented-fence', (t) => {
     customRules: [indentedFence],
     resultVersion: 0
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/indented-fence.md': {
-        'indented-fence': [8, 13, 18]
-      }
+  const expectedResult = {
+    './test/test-src/indented-fence.md': {
+      'indented-fence': [8, 13, 18]
     }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test.cb('non-literal-fence-label', (t) => {
-  t.plan(2)
+test('non-literal-fence-label', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/non-literal-fence-label.md'
@@ -40,21 +37,17 @@ test.cb('non-literal-fence-label', (t) => {
     customRules: [nonLiteralFenceLabel],
     resultVersion: 0
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/non-literal-fence-label.md': {
-        'non-literal-fence-label': [3]
-      }
+  const expectedResult = {
+    './test/test-src/non-literal-fence-label.md': {
+      'non-literal-fence-label': [3]
     }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test.cb('fenced-code-in-quote', (t) => {
-  t.plan(2)
+test('fenced-code-in-quote', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/fenced-code-in-quote.md'
@@ -63,21 +56,17 @@ test.cb('fenced-code-in-quote', (t) => {
     customRules: [fencedCodeInQuote],
     resultVersion: 0
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/fenced-code-in-quote.md': {
-        'fenced-code-in-quote': [3, 10, 17, 24, 31]
-      }
+  const expectedResult = {
+    './test/test-src/fenced-code-in-quote.md': {
+      'fenced-code-in-quote': [3, 10, 17, 24, 31]
     }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test.cb('typograph', (t) => {
-  t.plan(2)
+test('typograph', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/typograph.md'
@@ -86,66 +75,36 @@ test.cb('typograph', (t) => {
     customRules: [typograph],
     resultVersion: 1
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/typograph.md': [
-        {
-          errorContext: null,
-          errorDetail: 'hyphen instead of dash',
-          errorRange: [6, 5],
-          lineNumber: 5,
-          ruleAlias: 'typograph',
-          ruleDescription: 'typograph error',
-          ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
-          ruleName: 'typograph'
-        },
-        {
-          errorContext: null,
-          errorDetail: 'dash instead of hyphen',
-          errorRange: [5, 3],
-          lineNumber: 9,
-          ruleAlias: 'typograph',
-          ruleDescription: 'typograph error',
-          ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
-          ruleName: 'typograph'
-        }
-      ]
-    }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
-})
-
-test.cb('validate-internal-links', (t) => {
-  t.plan(2)
-  const options = {
-    files: [
-      './test/test-src/topic-A/validate-internal-links.md'
-    ],
-    config: {
-      default: true,
-      MD042: false
-    },
-    customRules: [validateInternalLinks],
-    resultVersion: 0
-  }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79, 81]
+  const expectedResult = {
+    './test/test-src/typograph.md': [
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [6, 5],
+        lineNumber: 5,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [5, 3],
+        lineNumber: 9,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
       }
-    }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+    ]
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test.cb('validate-internal-links with src', (t) => {
-  t.plan(2)
+test('validate-internal-links', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/topic-A/validate-internal-links.md'
@@ -153,6 +112,30 @@ test.cb('validate-internal-links with src', (t) => {
     config: {
       default: true,
       MD042: false,
+      MD051: false
+    },
+    customRules: [validateInternalLinks],
+    resultVersion: 0
+  }
+  const expectedResult = {
+    './test/test-src/topic-A/validate-internal-links.md': {
+      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79, 81]
+    }
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+})
+
+test('validate-internal-links with src', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/topic-A/validate-internal-links.md'
+    ],
+    config: {
+      default: true,
+      MD042: false,
+      MD051: false,
       'validate-internal-links': {
         src: './test',
         project: 'markdownlint-foliant-rules'
@@ -161,21 +144,17 @@ test.cb('validate-internal-links with src', (t) => {
     customRules: [validateInternalLinks],
     resultVersion: 0
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79, 81]
-      }
+  const expectedResult = {
+    './test/test-src/topic-A/validate-internal-links.md': {
+      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 69, 71, 77, 79, 81]
     }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test.cb('validate-internal-links with src and project', (t) => {
-  t.plan(2)
+test('validate-internal-links with src and project', async t => {
+  t.plan(1)
   const options = {
     files: [
       './test/test-src/topic-A/validate-internal-links.md'
@@ -183,6 +162,7 @@ test.cb('validate-internal-links with src and project', (t) => {
     config: {
       default: true,
       MD042: false,
+      MD051: false,
       'validate-internal-links': {
         src: './test',
         project: 'another-project'
@@ -191,15 +171,11 @@ test.cb('validate-internal-links with src and project', (t) => {
     customRules: [validateInternalLinks],
     resultVersion: 0
   }
-  markdownlint(options, function callback (err, actualResult) {
-    t.falsy(err)
-    const expectedResult = {
-      './test/test-src/topic-A/validate-internal-links.md': {
-        'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
-      }
+  const expectedResult = {
+    './test/test-src/topic-A/validate-internal-links.md': {
+      'validate-internal-links': [39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 77, 79]
     }
-    // @ts-ignore
-    t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
-    t.end()
-  })
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
