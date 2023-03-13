@@ -1,6 +1,6 @@
 {
   "name": "markdownlint-rules-foliant",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Markdownlint rules for Foliant projects",
   "license": "MIT",
   "homepage": "https://github.com/holamgadol/markdownlint-foliant-rules",
