@@ -8,12 +8,12 @@
 
 ковёр–самолёт
 
-## Dash-list
+## Hyphen-list
 
 - first item
 - second item
 
-## Dash-list in a quote
+## Hyphen-list in a quote
 
 > - first item
 > - second item
