@@ -96,6 +96,36 @@ test('typograph', async t => {
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
         ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'regular space between digit and letter',
+        errorRange: [3, 3],
+        lineNumber: 23,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'space or non-space before percent sign',
+        errorRange: [3, 2],
+        lineNumber: 29,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'space or non-space before percent sign',
+        errorRange: [3, 3],
+        lineNumber: 31,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
       }
     ]
   }
