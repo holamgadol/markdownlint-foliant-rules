@@ -124,6 +124,38 @@ Corrected example:
 semi-final
 ```
 
+#### Regular space between a digit and a letter
+
+Example:
+
+```md
+100 dollars
+```
+
+Corrected example:
+
+```md
+100 dollars
+```
+
+#### No non-breaking space before percent sign
+
+Example:
+
+```md
+200%
+
+200 %
+```
+
+Corrected example:
+
+```md
+200 %
+
+200 %
+```
+
 Rationale: Violations of this rule can lead to an improperly typed text.
 
 
