@@ -120,7 +120,7 @@ test('validate-internal-links', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95, 103]
     }
   }
   const actualResult = await promisify(markdownlint)(options)
@@ -148,7 +148,7 @@ test('validate-internal-links with src', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95, 103]
     }
   }
   const actualResult = await promisify(markdownlint)(options)
@@ -176,7 +176,31 @@ test('validate-internal-links with src and project', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 103]
+    }
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+})
+
+test('validate-internal-links from index', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/topic-A/section/index.md'
+    ],
+    config: {
+      default: true,
+      MD033: false,
+      MD042: false,
+      MD051: false
+    },
+    customRules: [validateInternalLinks],
+    resultVersion: 0
+  }
+  const expectedResult = {
+    './test/test-src/topic-A/section/index.md': {
+      'validate-internal-links': []
     }
   }
   const actualResult = await promisify(markdownlint)(options)
