@@ -7,6 +7,7 @@ const nonLiteralFenceLabel = require('../lib/non-literal-fence-label')
 const fencedCodeInQuote = require('../lib/fenced-code-in-quote')
 const typograph = require('../lib/typograph')
 const validateInternalLinks = require('../lib/validate-internal-links')
+const frontmatterTagsExist = require('../lib/frontmatter-tags-exist')
 
 test('indented-fence', async t => {
   t.plan(1)
@@ -181,4 +182,100 @@ test('validate-internal-links with src and project', async t => {
   }
   const actualResult = await promisify(markdownlint)(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+})
+
+test('frontmatter-tags-exist with tag, frontmatter yaml', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/yaml-tag-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'One tag, frontmatter in yaml format.')
+})
+
+test('frontmatter-tags-exist with tags, frontmatter yaml', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/yaml-tags-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'Several tags, frontmatter in yaml format.')
+})
+
+test('frontmatter-tags-exist with tag, frontmatter toml', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/toml-tag-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'One tag, frontmatter in toml format.')
+})
+
+test('frontmatter-tags-exist with tags, frontmatter toml', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/toml-tags-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'Several tags, frontmatter in toml format.')
+})
+
+test('frontmatter-tags-exist with tag, frontmatter json', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/json-tag-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'One tag, frontmatter in json format.')
+})
+
+test('frontmatter-tags-exist with tags, frontmatter json', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/frontmatter-tags-exist/json-tags-exist.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, 'Several tags, frontmatter in json format.')
 })
