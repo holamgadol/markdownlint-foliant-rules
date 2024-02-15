@@ -1,5 +1,5 @@
 +++
-tags = test
+tags = 'test'
 description = 'test description'
 date = '2024-15-02'
 +++
