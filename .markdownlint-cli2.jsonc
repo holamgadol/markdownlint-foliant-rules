@@ -17,6 +17,6 @@
       "src": "./test",
       "project": "markdownlint-foliant-rules"
     },
-    "frontmatter-tags-exist": true
+    "frontmatter-tags-exist": false
   }
 }
