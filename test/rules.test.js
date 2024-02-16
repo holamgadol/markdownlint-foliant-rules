@@ -279,3 +279,19 @@ test('frontmatter-tags-exist with tags, frontmatter json', async t => {
   const actualResult = await promisify(markdownlint)(options)
   t.assert(actualResult, 'Several tags, frontmatter in json format.')
 })
+
+test('frontmatter-tags-exist without frontmatter', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/typograph.md'
+    ],
+    config: {
+      'frontmatter-tags-exist': true
+    },
+    customRules: [frontmatterTagsExist],
+    resultVersion: 0
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.assert(actualResult, '')
+})
