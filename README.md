@@ -135,6 +135,20 @@ Parameters: src, project
 
 This rule is triggered when a local link without a proper reference is found.
 
+### [_frontmatter-tags-exist_](./lib/frontmatter-tags-exist.js)
+
+Checks if there are tags in the frontmatter.
+Supported frontmatter formats: XML, YAML, and JSON.
+
+Fixable: The `none` tag will be added into frontmatter.
+If there is no front matter, a fronmatter in YAML format with the tag `none` will be added:
+```md
+---
+tags: none
+---
+
+```
+
 #### Configuration
 
 _validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.

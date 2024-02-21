@@ -4,7 +4,8 @@
     "./lib/non-literal-fence-label",
     "./lib/fenced-code-in-quote",
     "./lib/typograph",
-    "./lib/validate-internal-links"
+    "./lib/validate-internal-links",
+    "./lib/frontmatter-tags-exist"
   ],
   "config": {
     "default": false,
@@ -13,8 +14,9 @@
     "fenced-code-in-quote": false,
     "typograph": false,
     "validate-internal-links": {
-    "src": "./test",
-    "project": "markdownlint-foliant-rules"
-    }
+      "src": "./test",
+      "project": "markdownlint-foliant-rules"
+    },
+    "frontmatter-tags-exist": false
   }
 }
