@@ -1,32 +1,16 @@
 const test = require('ava')
 
-const findExternalAnchors = require('../lib/validate-internal-links-tools/find-etxrenal-anchors')
+const findAnchorInIncludes = require('../lib/validate-internal-links-tools/includes_map/analyzer')
 
 const refs = new Set()
-const testRoot = __dirname
+const file = process.cwd() + '/src/main.md'
+const anchor = 'anchor-in-text'
+const map = [{ file: 'src/main.md', includes: ['src/included-file.md'], anchors: ['anchor-in-text', 'anchor-customid'] }]
 
-const docPath = '/test-src/find-external-anchors/anchors-source-A.md'
+test('find anchors in includes_map.json', t => {
+  const items = new Set()
+  items.add(process.cwd() + '/src/main.md#anchor-in-text')
 
-const docAnchors = [
-  testRoot + docPath + '#testAnchor',
-  testRoot + docPath + '#heading-in-another-document'
-].sort()
-
-test('find anchors in doc.md', t => {
-  findExternalAnchors(testRoot + docPath, refs)
-  const items = Array.from(refs).sort()
-  t.deepEqual(items, docAnchors)
-})
-
-const articlePath = '/test-src/find-external-anchors/anchors-source-B.md'
-
-const articleAnchors = [
-  testRoot + articlePath + '#якорь',
-  testRoot + articlePath + '#заголовок-на-русском-языке'
-].sort()
-
-test('find anchors in article.md', t => {
-  findExternalAnchors(testRoot + articlePath, refs)
-  const items = Array.from(refs).sort()
-  t.deepEqual(items, docAnchors.concat(articleAnchors).sort())
+  findAnchorInIncludes(file, anchor, refs, map)
+  t.deepEqual(refs, items)
 })

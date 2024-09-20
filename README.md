@@ -242,3 +242,11 @@ npx markdownlint-cli2-fix "src/**/*.md"
 
 Install the [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) extension
 for better interactive linting.
+
+## Tests
+
+To run the tests, run:
+
+```bash
+npx ava
+```
