@@ -93,3 +93,11 @@ Invalid links to images
 ![black square](/images/black-square.png)
 
 Sometimes invalid link to external repo [document](/another-project/test-src/topic-A/adjacent-document#anchor)
+
+## Links to index section
+
+Valid link to [section](../section)
+
+Valid link to [section](../section/)
+
+Invalid link to [section](../section/index)
