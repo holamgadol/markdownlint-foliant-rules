@@ -5,7 +5,8 @@
     "./lib/fenced-code-in-quote",
     "./lib/typograph",
     "./lib/validate-internal-links",
-    "./lib/frontmatter-tags-exist"
+    "./lib/frontmatter-tags-exist",
+    "./lib/shortcode-validator"
   ],
   "config": {
     "default": false,
@@ -17,6 +18,11 @@
       "src": "./test",
       "project": "markdownlint-foliant-rules"
     },
-    "frontmatter-tags-exist": false
+    "frontmatter-tags-exist": false,
+    "shortcode-validator": {
+      "pairedShortcodes": [
+        "custom"
+      ]
+    }
   }
 }
