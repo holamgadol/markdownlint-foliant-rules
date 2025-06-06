@@ -180,18 +180,17 @@ Ignores Self-Closing Tags (`{{< img />}}`)
 _validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.
 It can be useful in case of linting inside a docker-container.
 
-
-
-```bash
+```json
 {
   "customRules": [
     "validate-internal-links"
   ],
   "config": {
     "validate-internal-links": {
-    "src": "./src",
-    "project": "markdownlint-foliant-rules"
-    }
+      "src": "./src",
+      "project": "markdownlint-foliant-rules"
+    },
+    "pairedShortcodes": ["custom-tag","alert"]
   }
 }
 ```
