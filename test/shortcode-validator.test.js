@@ -1,34 +1,56 @@
-const test = require('ava')
-const createRule = require('../lib/shortcode-validator')
+const test = require('ava');
+const rule = require('../lib/shortcode-validator')
 
-// Helper to run the rule with options
-const runRule = (content, options = {}) => {
-  const errors = []
-  const rule = createRule(options) // Initialize rule with options
+// Helper function to run the rule with config
+const runRule = (content, config = {}) => {
+  const errors = [];
   rule.function(
-    { lines: content.split('\n'), name: 'test.md' },
+    {
+      lines: content.split('\n'),
+      name: 'test.md',
+      config: config // Pass configuration here
+    },
     (error) => errors.push(error)
-  )
-  return errors
-}
+  );
+  return errors;
+};
 
 test('Passes with default shortcodes', (t) => {
-  const content = '{{< section >}}{{< /section >}}'
-  t.is(runRule(content).length, 0)
-})
+  const content = '{{< section >}}{{< /section >}}';
+  t.is(runRule(content).length, 0);
+});
 
-test('Validates custom shortcodes when provided', (t) => {
-  const content = '{{< custom >}}' // Not in defaults
-  const options = {
-    config: {
-      pairedShortcodes: ['custom']
-    }
-  }
-  const errors = runRule(content, options)
-  t.is(errors.length, 1) // Now fails because 'custom' is added
-})
+test('Validates custom shortcodes when configured', (t) => {
+  const content = '{{< custom >}}';
+  const config = { pairedShortcodes: ['custom'] };
+  const errors = runRule(content, config);
+  t.is(errors.length, 1);
+  t.true(errors[0].detail.includes('Missing closing tag'));
+});
 
 test('Ignores non-configured shortcodes', (t) => {
-  const content = '{{< unknown >}}'
-  t.is(runRule(content).length, 0) // Passes (not in defaults or options)
+  const content = '{{< unknown >}}';
+  t.is(runRule(content).length, 0);
+});
+
+test('Handles mixed syntax correctly', (t) => {
+  const content = `
+    {{< section >}}
+      {{% highlight %}}content{{% /highlight %}}
+      {{< accordion >}}content{{< /accordion >}}
+    {{< /section >}}
+  `
+  const errors = runRule(content)
+  t.is(errors.length, 0)
+})
+
+test('Detects mismatched closing tags', (t) => {
+  const content = `
+    {{< section >}}
+      {{% highlight %}}content{{% /highlight %}}
+      {{% /section %}}  <!-- Mismatched closing tag -->
+  `
+  const errors = runRule(content)
+  t.is(errors.length, 1)
+  t.is(errors[0].detail, "Mismatched closing tag for '{{% section %}}'")
 })
