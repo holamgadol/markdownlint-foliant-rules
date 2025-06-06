@@ -149,6 +149,32 @@ tags: none
 
 ```
 
+### [_shortcode-validator_](./lib/shortcode-validator.js)
+
+Validates correct pairing of Hugo short codes in Markdown files:
+
+- Ensures opening tags (`{{< name >}}`, `{{% name %}}`) have matching closing tags.
+- Checks syntax consistency (must close with the same syntax type).
+- This rule ensures that Hugo shortcodes maintains structural integrity while allowing flexible configuration for specific project needs.
+- Verifies proper nesting structures.
+- Allows custom shortcode configuration.
+
+Error Cases:
+- Missing closing tag ( `{{< section >}}` (no closing tag));
+- Mismatched syntax (`{{< section >}} {{%/section %}}`);
+- Orphaned closing tag (`{{< /section >}}` without opening tag).
+
+Configuration:
+Passed via params.config:
+```json
+{
+  "pairedShortcodes" : ["custom-tag","alert"]
+}
+```
+
+Extend default short codes: section,accordion,highlight
+Ignores Self-Closing Tags (`{{< img />}}`)
+
 #### Configuration
 
 _validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.
