@@ -149,23 +149,47 @@ tags: none
 
 ```
 
+### [_shortcode-validator_](./lib/shortcode-validator.js)
+
+Validates correct pairing of Hugo short codes in Markdown files:
+
+- Ensures opening tag (`{{< name >}}`, `{{% name %}}`) have matching closing tags.
+- Check syntax consistency (must close with the same syntax type).
+- This rule ensures that Hugo shortcodes maintains structural integrity.
+- Verifies proper nesting structures.
+- Allows custom shortcode configuration.
+
+Error Cases:
+- Missing closing tag ( `{{< section >}}` (no closing tag));
+- Mismatched syntax (`{{< section >}} {{%/section %}}`);
+- Orphaned closing tag (`{{< /section >}}` without opening tag).
+
+Configuration:
+```json
+{
+  "pairedShortcodes" : ["custom-tag","alert"]
+}
+```
+
+Extend default short codes: section, accordion, highlight, wrap.
+Ignore self-closing Tags (`{{< img />}}`)
+
 #### Configuration
 
 _validate-internal-links_ takes two optional arguments. You can specify the source directory and name of the project.
 It can be useful in case of linting inside a docker-container.
 
-
-
-```bash
+```json
 {
   "customRules": [
     "validate-internal-links"
   ],
   "config": {
     "validate-internal-links": {
-    "src": "./src",
-    "project": "markdownlint-foliant-rules"
-    }
+      "src": "./src",
+      "project": "markdownlint-foliant-rules"
+    },
+    "pairedShortcodes": ["custom-tag","alert"]
   }
 }
 ```
