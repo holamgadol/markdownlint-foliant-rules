@@ -20,6 +20,11 @@ test('Validates correct paired shortcodes', (t) => {
   t.is(errors.length, 0)
 })
 
+test('Validates correct self-closed shortcodes', (t) => {
+  const errors = runRule('{{< section />}}')
+  t.is(errors.length, 0)
+})
+
 test('Detects mismatched syntax', (t) => {
   const errors = runRule('{{< section >}}{{% /section %}}')
   t.is(errors.length, 1)
