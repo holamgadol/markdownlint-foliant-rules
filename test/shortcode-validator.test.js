@@ -20,7 +20,7 @@ test('Validates correct paired shortcodes', (t) => {
   t.is(errors.length, 0)
 })
 
-test('Validates correct self-closed shortcodes', (t) => {
+test('Skip self-closing shortcode', (t) => {
   const errors = runRule('{{< section />}}')
   t.is(errors.length, 0)
 })
