@@ -12,8 +12,8 @@ const docAnchors = [
   testRoot + docPath + '#heading-in-another-document'
 ].sort()
 
-test('find anchors in doc.md', t => {
-  findExternalAnchors(testRoot + docPath, refs)
+test.serial('find anchors in doc.md', async t => {
+  await findExternalAnchors(testRoot + docPath, refs)
   const items = Array.from(refs).sort()
   t.deepEqual(items, docAnchors)
 })
@@ -25,8 +25,8 @@ const articleAnchors = [
   testRoot + articlePath + '#заголовок-на-русском-языке'
 ].sort()
 
-test('find anchors in article.md', t => {
-  findExternalAnchors(testRoot + articlePath, refs)
+test.serial('find anchors in article.md', async t => {
+  await findExternalAnchors(testRoot + articlePath, refs)
   const items = Array.from(refs).sort()
   t.deepEqual(items, docAnchors.concat(articleAnchors).sort())
 })
