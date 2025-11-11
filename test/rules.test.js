@@ -1,7 +1,4 @@
 const test = require('ava').default
-const { promisify } = require('util')
-
-const markdownlint = require('markdownlint')
 const indentedFence = require('../lib/indented-fence')
 const nonLiteralFenceLabel = require('../lib/non-literal-fence-label')
 const fencedCodeInQuote = require('../lib/fenced-code-in-quote')
@@ -24,7 +21,9 @@ test('indented-fence', async t => {
       'indented-fence': [8, 13, 18]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -43,7 +42,9 @@ test('non-literal-fence-label', async t => {
       'non-literal-fence-label': [3]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -53,7 +54,7 @@ test('fenced-code-in-quote', async t => {
     files: [
       './test/test-src/fenced-code-in-quote.md'
     ],
-    config: { MD046: false },
+    config: { MD027: false, MD046: false },
     customRules: [fencedCodeInQuote],
     resultVersion: 0
   }
@@ -62,7 +63,9 @@ test('fenced-code-in-quote', async t => {
       'fenced-code-in-quote': [3, 10, 17, 24, 31]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -97,10 +100,92 @@ test('typograph', async t => {
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
         ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 15,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [9, 3],
+        lineNumber: 19,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 23,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [9, 3],
+        lineNumber: 24,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 28,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [9, 3],
+        lineNumber: 29,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 33,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [9, 3],
+        lineNumber: 34,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
       }
     ]
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -121,10 +206,12 @@ test('validate-internal-links', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 143, 145, 147, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187, 189, 193, 195, 197]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -149,10 +236,12 @@ test('validate-internal-links with src', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 143, 145, 147, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 181, 183, 185, 187, 189, 193, 195, 197]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -177,10 +266,12 @@ test('validate-internal-links with src and project', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 143, 145, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187, 189, 193, 195]
     }
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
@@ -196,7 +287,9 @@ test('frontmatter-tags-exist with tag, frontmatter yaml', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'One tag, frontmatter in yaml format.')
 })
 
@@ -212,7 +305,9 @@ test('frontmatter-tags-exist with tags, frontmatter yaml', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'Several tags, frontmatter in yaml format.')
 })
 
@@ -228,7 +323,9 @@ test('frontmatter-tags-exist with tag, frontmatter toml', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'One tag, frontmatter in toml format.')
 })
 
@@ -244,7 +341,9 @@ test('frontmatter-tags-exist with tags, frontmatter toml', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'Several tags, frontmatter in toml format.')
 })
 
@@ -260,7 +359,9 @@ test('frontmatter-tags-exist with tag, frontmatter json', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'One tag, frontmatter in json format.')
 })
 
@@ -276,6 +377,8 @@ test('frontmatter-tags-exist with tags, frontmatter json', async t => {
     customRules: [frontmatterTagsExist],
     resultVersion: 0
   }
-  const actualResult = await promisify(markdownlint)(options)
+
+  const mdlint = await import('markdownlint/promise')
+  const actualResult = await mdlint.lint(options)
   t.assert(actualResult, 'Several tags, frontmatter in json format.')
 })
