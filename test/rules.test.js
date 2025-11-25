@@ -28,13 +28,59 @@ test('indented-fence', async t => {
   t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
 })
 
-test('non-literal-fence-label', async t => {
+test('non-literal-fence-label-default', async t => {
   t.plan(1)
   const options = {
     files: [
       './test/test-src/non-literal-fence-label.md'
     ],
     config: { default: true },
+    customRules: [nonLiteralFenceLabel],
+    resultVersion: 0
+  }
+  const expectedResult = {
+    './test/test-src/non-literal-fence-label.md': {
+    }
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+})
+
+test('non-literal-fence-label-hugo', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/non-literal-fence-label.md'
+    ],
+    config: {
+      default: true,
+      'non-literal-fence-label': {
+        backend: 'hugo'
+      }
+    },
+    customRules: [nonLiteralFenceLabel],
+    resultVersion: 0
+  }
+  const expectedResult = {
+    './test/test-src/non-literal-fence-label.md': {
+    }
+  }
+  const actualResult = await promisify(markdownlint)(options)
+  t.deepEqual(actualResult, expectedResult, 'Undetected issues.')
+})
+
+test('non-literal-fence-label-mkdocs', async t => {
+  t.plan(1)
+  const options = {
+    files: [
+      './test/test-src/non-literal-fence-label.md'
+    ],
+    config: {
+      default: true,
+      'non-literal-fence-label': {
+        backend: 'mkdocs'
+      }
+    },
     customRules: [nonLiteralFenceLabel],
     resultVersion: 0
   }
