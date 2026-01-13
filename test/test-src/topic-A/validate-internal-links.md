@@ -94,104 +94,242 @@ Invalid links to images
 
 Sometimes invalid link to external repo [document](/another-project/test-src/topic-A/adjacent-document#anchor)
 
-!!! note "Плашка"
+## Links in different elements
 
-    Invalid classical link to adjacent [document](adjacent-document)
+### Code blocks
 
-    Invalid classical link to adjacent [document](adjacent-documen.md)
-
-    Invalid MkDocs link to adjacent [document](../adjacent-document.md)
-
-    Invalid MkDocs link to adjacent [document](../../adjacent-document)
-
-    Invalid MkDocs link to adjacent [document](/adjacent-document)
-
-    Invalid classical link to anchor in an adjacent [document](adjacent-document#anchor)
-
-    Invalid classical link to anchor in an adjacent [document](adjacent-document.md#anchors)
-
-    Invalid MkDocs link to adjacent [document](../adjacent-document#ancho)
-
-??? note "Плашка 2"
-
-    Invalid classical link to another [document](/topic-B/topic-B-document.md)
-
-    Invalid classical link to another [document](./topic-B/topic-B-document.md)
-
-    Invalid MkDocs link to another [document](../topic-B/topic-B-document)
-
-    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
-
-    Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
-
-    Invalid link to external repo [document](/external-project/document)
-
-    Sometimes invalid link to external repo [document](/markdownlint-foliant-rules/test-src/topic-A/adjacent-document#anchor)
-
-    Invalid link to [heading](#invalids)
-
-    Invalid link to [heading](invalid)
-
-    Invalid [anchor link](#anchor_lin)
-
-    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
-
-    Invalid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#external_anchor_lin)
-
-???+ note "Плашка 3"
-
-    ![red circle](_img/red-circle.png)
-
-    ![black square](/images/black-square.png)
-
-    Sometimes invalid link to external repo [document](/another-project/test-src/topic-A/adjacent-document#anchor)
-
-=== "Вкладка 1"
-
-    Invalid classical link to adjacent [document](adjacent-document)
+```markdown
+Invalid classical link to adjacent [document](adjacent-document)
+```
 
     Invalid classical link to adjacent [document](adjacent-documen.md)
 
-    Invalid MkDocs link to adjacent [document](../adjacent-document.md)
+Indentation using a tab character:
 
-    Invalid MkDocs link to adjacent [document](../../adjacent-document)
+	Invalid MkDocs link to adjacent [document](../adjacent-document.md)
 
-    Invalid MkDocs link to adjacent [document](/adjacent-document)
+### Lists and quotes
 
-    Invalid classical link to anchor in an adjacent [document](adjacent-document#anchor)
+- Invalid MkDocs link to adjacent [document](../../adjacent-document)
+    - Invalid MkDocs link to adjacent [document](/adjacent-document)
+    - Valid MkDocs link to adjacent [document](../adjacent-document)
 
-    Invalid classical link to anchor in an adjacent [document](adjacent-document.md#anchors)
+- Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
+	- Invalid classical link to anchor in an adjacent [document](adjacent-document#anchor)
+	- Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
 
-    Invalid MkDocs link to adjacent [document](../adjacent-document#ancho)
+1. Invalid classical link to anchor in an adjacent [document](adjacent-document.md#anchors)
+	1. Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
+	2. Invalid MkDocs link to adjacent [document](../adjacent-document#ancho)
 
-    Invalid classical link to another [document](/topic-B/topic-B-document.md)
+1. Valid classical link to another [document](../topic-B/topic-B-document.md)
+    1. Invalid classical link to another [document](/topic-B/topic-B-document.md)
+    2. Valid classical link to another [document](../topic-B/topic-B-document.md)
 
-    Invalid classical link to another [document](./topic-B/topic-B-document.md)
+> Invalid classical link to another [document](./topic-B/topic-B-document.md)
+> Valid classical link to another [document](../topic-B/topic-B-document.md)
 
-    Invalid MkDocs link to another [document](../topic-B/topic-B-document)
+### Table
+
+| #   | Текст                                                                   |
+| --- | ----------------------------------------------------------------------- |
+| 1   | Invalid MkDocs link to another [document](../topic-B/topic-B-document)  |
+| 2   | Valid MkDocs link to another [document](../../topic-B/topic-B-document) |
+
+## Admonitions
+
+!!! note "Text and code blocks"
 
     Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+    Valid classical link to anchor in an adjacent [document](adjacent-document.md#anchor)
 
-    Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
+    ```markdown
+    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+    ```
 
-    Invalid link to external repo [document](/external-project/document)
+        Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
 
-    Sometimes invalid link to external repo [document](/markdownlint-foliant-rules/test-src/topic-A/adjacent-document#anchor)
+??? note "Lists and quotes"
 
-    Invalid link to [heading](#invalids)
+    - Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
+        - Invalid link to external repo [document](/external-project/document)
+        - Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#anchor)
 
-    Invalid link to [heading](invalid)
+    1. Invalid link to [heading](#invalids)
+        1. Invalid link to [heading](invalid)
+        2. Valid link to [heading](#valid-links)
 
-    Invalid [anchor link](#anchor_lin)
+    > Invalid [anchor link](#anchor_lin)
+    > Valid [anchor link](#anchor_link)
 
-    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
+???+ note "Table and tabs"
 
-    Invalid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#external_anchor_lin)
+    | #   | Текст                             |
+    | --- | --------------------------------- |
+    | 1   | Invalid [anchor link](#anchor_lin)|
+    | 2   | Valid [anchor link](#anchor_link) |
 
-=== "Вкладка 2"
+    === "Tab 1"
 
-    ![red circle](_img/red-circle.png)
+        Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
 
-    ![black square](/images/black-square.png)
+    === "Tab 2"
 
-    Sometimes invalid link to external repo [document](/another-project/test-src/topic-A/adjacent-document#anchor)
+        Valid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_link)
+
+### Lists with admonitions
+
+The list is indented by 2 spaces
+
+- List item 1
+- List item 2
+
+  !!! note "text"
+
+      Invalid classical link to adjacent [document](adjacent-document)
+      text
+      Valid classical link to adjacent [document](adjacent-document.md)
+
+The list is indented by 4 spaces
+
+- List item 1
+- List item 2
+
+    !!! note "test"
+
+        Invalid classical link to adjacent [document](adjacent-document)
+        text
+        Valid classical link to adjacent [document](adjacent-document.md)
+
+- List item 3
+
+### Indentation using a tab character in admonitions
+
+!!! note "Text and code blocks"
+
+	Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+
+	```markdown
+	Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+	```
+
+		Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+
+??? note "Lists and quotes"
+
+	- Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
+		- Invalid link to external repo [document](/external-project/document)
+		- Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#anchor)
+
+	1. Invalid link to [heading](#invalids)
+		1. Invalid link to [heading](invalid)
+		2. Valid link to [heading](#valid-links)
+
+	> Invalid [anchor link](#anchor_lin)
+	> Valid [anchor link](#anchor_link)
+
+???+ note "Table and tabs"
+
+	| #   | Текст                             |
+	| --- | --------------------------------- |
+	| 1   | Invalid [anchor link](#anchor_lin)|
+	| 2   | Valid [anchor link](#anchor_link) |
+
+	=== "Tab 1"
+
+		Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
+
+	=== "Tab 2"
+
+		Valid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_link)
+
+- List item 1
+- List item 2
+
+	!!! note "test"
+
+		Invalid classical link to adjacent [document](adjacent-document)
+		text
+		Valid classical link to adjacent [document](adjacent-document.md)
+
+- List item 3
+
+## Tabs
+
+=== "Text and code blocks"
+
+    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+    
+    ```markdown
+    Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+    ```
+    
+        Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+
+=== "Lists and quotes"
+
+    - Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
+        - Invalid link to external repo [document](/external-project/document)
+        - Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#anchor)
+
+    1. Invalid link to [heading](#invalids)
+        1. Invalid link to [heading](invalid)
+        2. Valid link to [heading](#valid-links)
+
+    > Invalid [anchor link](#anchor_lin)
+    > Valid [anchor link](#anchor_link)
+
+=== "Table and admonitions"
+
+    | #   | Текст                             |
+    | --- | --------------------------------- |
+    | 1   | Invalid [anchor link](#anchor_lin)|
+    | 2   | Valid [anchor link](#anchor_link) |
+
+    !!! note "Note 1"
+
+        Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
+
+    ??? note "Note 2"
+
+        Valid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_link)
+
+### Indentation using a tab character in tabs
+
+=== "Text and code blocks"
+
+	Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+
+	```markdown
+	Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+	```
+
+		Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#ancho)
+
+=== "Lists and quotes"
+
+	- Invalid MkDocs link to anchor in another [document](../topic-B/topic-B-document#anchor)
+		- Invalid link to external repo [document](/external-project/document)
+		- Valid MkDocs link to anchor in another [document](../../topic-B/topic-B-document#anchor)
+
+	1. Invalid link to [heading](#invalids)
+		1. Invalid link to [heading](invalid)
+		2. Valid link to [heading](#valid-links)
+
+	> Invalid [anchor link](#anchor_lin)
+	> Valid [anchor link](#anchor_link)
+
+=== "Table and admonitions"
+
+	| #   | Текст                             |
+	| --- | --------------------------------- |
+	| 1   | Invalid [anchor link](#anchor_lin)|
+	| 2   | Valid [anchor link](#anchor_link) |
+
+	!!! note "Note 1"
+
+		Invalid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_lin)
+
+	??? note "Note 2"
+
+		Valid classical link to anchor in another [document](../topic-B/topic-B-document.md#external_anchor_link)

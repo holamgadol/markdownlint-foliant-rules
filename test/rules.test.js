@@ -75,7 +75,12 @@ test('typograph', async t => {
     files: [
       './test/test-src/typograph.md'
     ],
-    config: { default: true },
+    config: {
+      default: true,
+      MD007: false,
+      MD010: false,
+      MD046: false
+    },
     customRules: [typograph],
     resultVersion: 1
   }
@@ -103,9 +108,9 @@ test('typograph', async t => {
       },
       {
         errorContext: null,
-        errorDetail: 'hyphen instead of dash',
-        errorRange: [10, 5],
-        lineNumber: 15,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 11,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
@@ -114,8 +119,8 @@ test('typograph', async t => {
       {
         errorContext: null,
         errorDetail: 'dash instead of hyphen',
-        errorRange: [9, 3],
-        lineNumber: 19,
+        errorRange: [7, 3],
+        lineNumber: 27,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
@@ -124,27 +129,7 @@ test('typograph', async t => {
       {
         errorContext: null,
         errorDetail: 'hyphen instead of dash',
-        errorRange: [10, 5],
-        lineNumber: 23,
-        ruleAlias: 'typograph',
-        ruleDescription: 'typograph error',
-        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
-        ruleName: 'typograph'
-      },
-      {
-        errorContext: null,
-        errorDetail: 'dash instead of hyphen',
-        errorRange: [9, 3],
-        lineNumber: 24,
-        ruleAlias: 'typograph',
-        ruleDescription: 'typograph error',
-        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
-        ruleName: 'typograph'
-      },
-      {
-        errorContext: null,
-        errorDetail: 'hyphen instead of dash',
-        errorRange: [10, 5],
+        errorRange: [12, 5],
         lineNumber: 28,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
@@ -154,8 +139,28 @@ test('typograph', async t => {
       {
         errorContext: null,
         errorDetail: 'dash instead of hyphen',
-        errorRange: [9, 3],
-        lineNumber: 29,
+        errorRange: [7, 3],
+        lineNumber: 31,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [9, 5],
+        lineNumber: 32,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 35,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
@@ -165,7 +170,227 @@ test('typograph', async t => {
         errorContext: null,
         errorDetail: 'hyphen instead of dash',
         errorRange: [10, 5],
-        lineNumber: 33,
+        lineNumber: 36,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 39,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [13, 5],
+        lineNumber: 40,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [7, 3],
+        lineNumber: 43,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [14, 5],
+        lineNumber: 56,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [13, 3],
+        lineNumber: 57,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 63,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [11, 3],
+        lineNumber: 73,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [16, 5],
+        lineNumber: 74,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [12, 3],
+        lineNumber: 77,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [17, 5],
+        lineNumber: 78,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [11, 3],
+        lineNumber: 81,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [18, 5],
+        lineNumber: 92,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [17, 3],
+        lineNumber: 93,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [14, 5],
+        lineNumber: 97,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [13, 3],
+        lineNumber: 101,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [12, 5],
+        lineNumber: 113,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [11, 3],
+        lineNumber: 114,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [14, 5],
+        lineNumber: 123,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [13, 3],
+        lineNumber: 124,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [7, 5],
+        lineNumber: 132,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 142,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 143,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
@@ -175,7 +400,267 @@ test('typograph', async t => {
         errorContext: null,
         errorDetail: 'dash instead of hyphen',
         errorRange: [9, 3],
-        lineNumber: 34,
+        lineNumber: 146,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [11, 5],
+        lineNumber: 147,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 150,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [15, 5],
+        lineNumber: 161,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [8, 5],
+        lineNumber: 165,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [7, 3],
+        lineNumber: 169,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [8, 5],
+        lineNumber: 177,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [7, 3],
+        lineNumber: 178,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 186,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [11, 3],
+        lineNumber: 196,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [16, 5],
+        lineNumber: 197,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [12, 3],
+        lineNumber: 200,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [17, 5],
+        lineNumber: 201,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [11, 3],
+        lineNumber: 204,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [18, 5],
+        lineNumber: 215,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [17, 3],
+        lineNumber: 216,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [14, 5],
+        lineNumber: 220,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [13, 3],
+        lineNumber: 224,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [7, 5],
+        lineNumber: 231,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 241,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [10, 5],
+        lineNumber: 242,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [9, 3],
+        lineNumber: 245,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [11, 5],
+        lineNumber: 246,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [8, 3],
+        lineNumber: 249,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [15, 5],
+        lineNumber: 260,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'hyphen instead of dash',
+        errorRange: [8, 5],
+        lineNumber: 264,
+        ruleAlias: 'typograph',
+        ruleDescription: 'typograph error',
+        ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
+        ruleName: 'typograph'
+      },
+      {
+        errorContext: null,
+        errorDetail: 'dash instead of hyphen',
+        errorRange: [7, 3],
+        lineNumber: 268,
         ruleAlias: 'typograph',
         ruleDescription: 'typograph error',
         ruleInformation: 'https://github.com/holamgadol/markdownlint-foliant-rules#typograph',
@@ -197,8 +682,11 @@ test('validate-internal-links', async t => {
     ],
     config: {
       default: true,
+      MD007: false,
+      MD010: false,
       MD033: false,
       MD042: false,
+      MD046: false,
       MD051: false
     },
     customRules: [validateInternalLinks],
@@ -206,7 +694,7 @@ test('validate-internal-links', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 143, 145, 147, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187, 189, 193, 195, 197]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 95, 113, 114, 118, 121, 123, 126, 129, 136, 143, 154, 155, 158, 159, 162, 169, 174, 189, 200, 210, 220, 221, 224, 225, 228, 235, 240, 251, 261, 271, 272, 275, 276, 279, 286, 291, 301, 311, 312, 315, 316, 319, 326, 331]
     }
   }
 
@@ -223,8 +711,11 @@ test('validate-internal-links with src', async t => {
     ],
     config: {
       default: true,
+      MD007: false,
+      MD010: false,
       MD033: false,
       MD042: false,
+      MD046: false,
       MD051: false,
       'validate-internal-links': {
         src: './test',
@@ -236,7 +727,7 @@ test('validate-internal-links with src', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 143, 145, 147, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 181, 183, 185, 187, 189, 193, 195, 197]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 77, 79, 81, 83, 85, 91, 93, 95, 113, 114, 118, 121, 123, 126, 129, 136, 143, 154, 155, 158, 159, 162, 169, 174, 189, 200, 210, 220, 221, 224, 225, 228, 235, 240, 251, 261, 271, 272, 275, 276, 279, 286, 291, 301, 311, 312, 315, 316, 319, 326, 331]
     }
   }
 
@@ -253,8 +744,11 @@ test('validate-internal-links with src and project', async t => {
     ],
     config: {
       default: true,
+      MD007: false,
+      MD010: false,
       MD033: false,
       MD042: false,
+      MD046: false,
       MD051: false,
       'validate-internal-links': {
         src: './test',
@@ -266,7 +760,7 @@ test('validate-internal-links with src and project', async t => {
   }
   const expectedResult = {
     './test/test-src/topic-A/validate-internal-links.md': {
-      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 99, 101, 103, 105, 107, 109, 111, 113, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 143, 145, 151, 153, 155, 157, 159, 161, 163, 165, 167, 169, 171, 173, 175, 177, 179, 181, 183, 185, 187, 189, 193, 195]
+      'validate-internal-links': [47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 91, 93, 113, 114, 118, 121, 123, 126, 129, 136, 143, 154, 155, 158, 159, 162, 169, 174, 189, 200, 210, 220, 221, 224, 225, 228, 235, 240, 251, 261, 271, 272, 275, 276, 279, 286, 291, 301, 311, 312, 315, 316, 319, 326, 331]
     }
   }
 
