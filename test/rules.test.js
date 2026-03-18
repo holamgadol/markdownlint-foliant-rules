@@ -684,10 +684,12 @@ test('validate-internal-links', async t => {
       default: true,
       MD007: false,
       MD010: false,
+      MD013: false,
       MD033: false,
       MD042: false,
       MD046: false,
-      MD051: false
+      MD051: false,
+      MD059: false
     },
     customRules: [validateInternalLinks],
     resultVersion: 0
@@ -713,10 +715,12 @@ test('validate-internal-links with src', async t => {
       default: true,
       MD007: false,
       MD010: false,
+      MD013: false,
       MD033: false,
       MD042: false,
       MD046: false,
       MD051: false,
+      MD059: false,
       'validate-internal-links': {
         src: './test',
         project: 'markdownlint-foliant-rules'
@@ -746,10 +750,12 @@ test('validate-internal-links with src and project', async t => {
       default: true,
       MD007: false,
       MD010: false,
+      MD013: false,
       MD033: false,
       MD042: false,
       MD046: false,
       MD051: false,
+      MD059: false,
       'validate-internal-links': {
         src: './test',
         project: 'another-project'

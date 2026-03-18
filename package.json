@@ -18,8 +18,8 @@
     "markdownlint-rule"
   ],
   "dependencies": {
-    "markdownlint": "^0.37.4",
-    "markdownlint-cli2": "^0.18.1",
+    "markdownlint": "^0.40.0",
+    "markdownlint-cli2": "^0.21.0",
     "markdownlint-rule-helpers": "^0.29.0"
   },
   "devDependencies": {
