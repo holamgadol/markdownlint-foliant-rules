@@ -1,10 +1,6 @@
 on:
   release:
     types: [published]
-  workflow_run:
-    workflows: ["Node CI"]
-    types:
-      - completed
 
 permissions:
   id-token: write  # Required for OIDC
